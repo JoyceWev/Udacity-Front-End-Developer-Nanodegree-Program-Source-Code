@@ -1,7 +1,6 @@
 
 // Setup empty JS object to act as endpoint for all routes
-projectData = {};
-const data = [];
+const projectData = [];
 
 /* Dependecies*/
 // Require Bodyparser to run server and routes
@@ -50,10 +49,11 @@ function receivedPost (req, res) {
 
 function addWeather (req, res) {
 	let newEntry = {
-		//temp: req.body.list[0].main.temp,
+		temp: (req.body.temperature.temp-272.15).toFixed(1),
 		city: req.body.city.name,
 		feels: req.body.feels
 	}
-	console.log(req);
-	data.push(newEntry);
+	projectData.unshift(newEntry);
+	console.log(newEntry);
+	res.send(projectData);
 }
