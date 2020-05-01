@@ -36,7 +36,7 @@ function listening() {
 app.get('/all', sendData);
 
 // POST method route
-app.post('/addWeather', addWeather);
+
 
 function sendData (req, res) {
 	res.send(projectData);
@@ -46,6 +46,8 @@ function receivedPost (req, res) {
 	console.log(res);
 	res.send('POST received')
 };
+
+app.post('/addWeather', addWeather);
 
 function addWeather (req, res) {
 	let newEntry = {
